@@ -4,16 +4,16 @@ choco install -y wsl-ubuntu-1804
 
 RefreshEnv
 if (Test-PendingReboot) { Invoke-Reboot }
-Ubuntu1804 run apt update
-Ubuntu1804 run apt upgrade -y
-debian run apt update
-debian run apt upgrade -y
+wsl -d apt ubuntu-18.04 update
+wsl -d apt ubuntu-18.04 run apt upgrade -y
+wsl -d apt debian run apt update
+wsl -d apt debian run apt upgrade -y
 
 
 <#
 NOTE: Other distros can be scripted the same way for example:
 
-#--- SLES ---
+#--- SLES --- 
 # Install SLES Store app
 Invoke-WebRequest -Uri https://aka.ms/wsl-sles-12 -OutFile ~/SLES.appx -UseBasicParsing
 Add-AppxPackage -Path ~/SLES.appx
