@@ -1,5 +1,6 @@
-choco install -y Microsoft-Windows-Subsystem-Linux --source="'windowsfeatures'"
-choco install wsl-debiangnulinux 
+choco install -y wsl
+choco install -y wsl-debiangnulinux
+choco install -y wsl-ubuntu-1804 
 
 RefreshEnv
 Ubuntu1804 run apt update
