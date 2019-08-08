@@ -3,6 +3,7 @@ choco install -y wsl-debiangnulinux
 choco install -y wsl-ubuntu-1804 
 
 RefreshEnv
+if (Test-PendingReboot) { Invoke-Reboot }
 Ubuntu1804 run apt update
 Ubuntu1804 run apt upgrade -y
 debian run apt update
