@@ -2,7 +2,9 @@
 # Author: Microsoft
 # Common settings for web dev
 
+Update-ExecutionPolicy Unrestricted 
 Disable-UAC
+if (Test-PendingReboot) { Invoke-Reboot }
 
 # Get the base URI path from the ScriptToCall value
 $bstrappackage = "-bootstrapPackage"
@@ -21,15 +23,27 @@ function executeScript {
 	iex ((new-object net.webclient).DownloadString("$helperUri/$script"))
 }
 
+Install-WindowsUpdate -AcceptEula 
+if (Test-PendingReboot) { Invoke-Reboot }
+Disable-MicrosoftUpdate
+
 #--- Setting up Windows ---
 executeScript "FileExplorerSettings.ps1";
+if (Test-PendingReboot) { Invoke-Reboot }
 executeScript "SystemConfiguration.ps1";
 executeScript "CommonDevTools.ps1";
+if (Test-PendingReboot) { Invoke-Reboot }
 executeScript "RemoveDefaultApps.ps1";
+if (Test-PendingReboot) { Invoke-Reboot }
+executeScript "HyperV.ps1";
+if (Test-PendingReboot) { Invoke-Reboot }
 executeScript "Docker.ps1";
+if (Test-PendingReboot) { Invoke-Reboot }
 executeScript "WSL.ps1";
+if (Test-PendingReboot) { Invoke-Reboot }
 executeScript "Browsers.ps1";
 RefreshEnv
+if (Test-PendingReboot) { Invoke-Reboot }
 #--- Tools ---
 choco install -y azure-cli
 
@@ -47,6 +61,7 @@ choco install -y visualstudio2019-workload-netcoretools
 #--- Microsoft WebDriver ---
 choco install -y microsoftwebdriver
 
+if (Test-PendingReboot) { Invoke-Reboot }
 #--- Extra Stuff ---
 Disable-GameBarTips
 Disable-BingSearch
@@ -76,8 +91,9 @@ choco install -y launchy
 choco install -y office365proplus
 choco install -y razer-synapse-2 
 choco install -y samsung-magician  
+if (Test-PendingReboot) { Invoke-Reboot }
 
-
+Update-ExecutionPolicy RemoteSigned
 Enable-UAC
 Enable-MicrosoftUpdate
 Install-WindowsUpdate -acceptEula -Full
