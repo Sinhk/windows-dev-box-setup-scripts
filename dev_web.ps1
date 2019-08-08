@@ -4,6 +4,7 @@
 
 Update-ExecutionPolicy Unrestricted 
 Disable-UAC
+Set-TaskbarOptions -Size Small -Combine Full 
 if (Test-PendingReboot) { Invoke-Reboot }
 
 # Get the base URI path from the ScriptToCall value
