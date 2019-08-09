@@ -54,11 +54,14 @@ code --install-extension EditorConfig.EditorConfig
 code --install-extension ms-vscode.PowerShell
 code --install-extension ms-vscode.csharp
 
-choco install -y dotnetcore-sdk 
+choco install -y dotnetcore-sdk
+if (Test-PendingReboot) { Invoke-Reboot }
+
 choco install -y visualstudio2019community 
 choco install -y visualstudio2019-workload-netweb 
 choco install -y visualstudio2019-workload-netcoretools 
 
+choco install -y Containers-DisposableClientVM -source WindowsFeatures
 #--- Microsoft WebDriver ---
 choco install -y microsoftwebdriver
 
