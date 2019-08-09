@@ -1,6 +1,7 @@
-choco install -y wsl
 choco install -y wsl-debiangnulinux
+choco pin add -n=wsl-debiangnulinux
 choco install -y wsl-ubuntu-1804 
+choco pin add -n=wsl-ubuntu-1804
 
 RefreshEnv
 if (Test-PendingReboot) { Invoke-Reboot }
