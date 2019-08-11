@@ -99,4 +99,4 @@ if (Test-PendingReboot) { Invoke-Reboot }
 Update-ExecutionPolicy RemoteSigned
 Enable-UAC
 Enable-MicrosoftUpdate
-Install-WindowsUpdate -acceptEula -Full
+Install-WindowsUpdate -acceptEula
