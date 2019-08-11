@@ -93,8 +93,7 @@ choco install -y keepass-keepasshttp
 choco install -y keepass-plugin-keeanywhere
 choco install -y launchy
 choco install -y office365proplus
-choco install -y razer-synapse-2 
-choco install -y samsung-magician  
+choco install -y razer-synapse-2
 if (Test-PendingReboot) { Invoke-Reboot }
 
 Update-ExecutionPolicy RemoteSigned
