@@ -40,7 +40,7 @@ executeScript "HyperV.ps1";
 if (Test-PendingReboot) { Invoke-Reboot }
 executeScript "Docker.ps1";
 if (Test-PendingReboot) { Invoke-Reboot }
-executeScript "WSL.ps1";
+#executeScript "WSL.ps1";
 if (Test-PendingReboot) { Invoke-Reboot }
 executeScript "Browsers.ps1";
 RefreshEnv
