@@ -70,7 +70,6 @@ if (Test-PendingReboot) { Invoke-Reboot }
 Disable-GameBarTips
 Disable-BingSearch
 choco install -y adobereader 
-choco install -y adobereader-update
 choco install -y wget
 choco install -y windirstat
 choco install -y jetbrainstoolbox 
