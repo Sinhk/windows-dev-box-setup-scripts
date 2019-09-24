@@ -34,8 +34,6 @@ if (Test-PendingReboot) { Invoke-Reboot }
 executeScript "SystemConfiguration.ps1";
 executeScript "CommonDevTools.ps1";
 if (Test-PendingReboot) { Invoke-Reboot }
-executeScript "RemoveDefaultApps.ps1";
-if (Test-PendingReboot) { Invoke-Reboot }
 executeScript "HyperV.ps1";
 if (Test-PendingReboot) { Invoke-Reboot }
 executeScript "Docker.ps1";
@@ -86,9 +84,10 @@ choco install -y keepass-plugin-keeanywhere
 choco install -y launchy
 choco install -y office365proplus
 if (Test-PendingReboot) { Invoke-Reboot }
+executeScript "RemoveDefaultApps.ps1";
+if (Test-PendingReboot) { Invoke-Reboot }
 
 Update-ExecutionPolicy RemoteSigned
 Enable-UAC
 Enable-MicrosoftUpdate
 Install-WindowsUpdate -acceptEula
-if (Test-PendingReboot) { Invoke-Reboot }
